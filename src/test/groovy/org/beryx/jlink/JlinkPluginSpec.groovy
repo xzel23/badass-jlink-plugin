@@ -19,6 +19,7 @@ import org.gradle.testkit.runner.BuildResult
 import org.gradle.testkit.runner.GradleRunner
 import org.gradle.testkit.runner.TaskOutcome
 import spock.lang.Ignore
+import spock.lang.IgnoreIf
 import spock.lang.Specification
 import spock.lang.TempDir
 import spock.lang.Unroll
@@ -123,7 +124,8 @@ class JlinkPluginSpec extends Specification {
         'modular.example.hello' | '7.6'         | 'run-hello'  | null                        | null                                | 'run-hello'
     }
 
-    @Unroll
+    // Ignore on Windows ARM because the JavaFx plugin does not support that platform yet
+    @IgnoreIf({ OperatingSystem.current.isWindows() && System.getProperty("os.arch").contains("aarch64") })    @Unroll
     def "should create runtime image of project #projectDir with Gradle #gradleVersion"() {
         when:
         setUpBuild(projectDir)
