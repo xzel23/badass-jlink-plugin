@@ -18,7 +18,10 @@ plugins {
     id 'org.ajoberstar.git-publish' version '4.2.2'
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 
 project.version.with {
     major = pluginVersionMajor as int
