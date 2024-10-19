@@ -4,6 +4,30 @@
 
 ## Badass JLink Plugin ##
 
+##### NOTE: This is a fork of the original [Badass-Jlink-Plugin](https://github.com/beryx/badass-jlink-plugin) that is patched to support newer Java releases and other fixes not yet available with the original plugin.
+
+###### Changes in this fork
+
+**3.0.1-patch-1**
+
+- fix secondary Launcher fails in Kotlin DSL (issue in original repository: [#244](https://github.com/beryx/badass-jlink-plugin/issues/244))
+- update ASM for compatibility with newer JDK versions
+- fix building the plugin on Windows ARM:
+    - disable Gradle toolchains (not yet working on Windows ARM)
+    - disable JavaFX tests on Windows ARM because the JavaFX plugin is not yet compatible with the platform. You can still build JavaFX jlink applications on Windows ARM if you do not use the JavaFX plugin (use a local installation of JavaFX or a JDK that is prebuilt with JavaFX support or manually add the correct JavaFX dependencies).
+
+###### How to build
+
+Make sure your environment is set to use JDK 17 (I have disabled toolchains because of missing support on Windows ARM)
+
+###### How to use
+
+Change the plugin ID from `org.beryx.jlink` to `com.dua3.gradle.jlink` in your Gradle build files.
+
+##### The following is the content of the original README.
+
+---
+
 ##### NOTE: Looking for co-maintainers - see [this issue](https://github.com/beryx/badass-jlink-plugin/issues/223). #####
 
 Using this Gradle plugin you can create a custom runtime image of your modular application with minimal effort, 
