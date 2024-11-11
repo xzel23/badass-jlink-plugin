@@ -1,6 +1,6 @@
 plugins {
     id("org.javamodularity.moduleplugin") version "1.8.12"
-    id("com.dua3.gradle.jlink")
+    id("org.beryx.jlink")
 }
 
 repositories {

@@ -28,7 +28,7 @@ To use the plugin, include the following in your build script:
 [subs="attributes",options="nowrap"]
 ----
 plugins {
-    id 'com.dua3.gradle.jlink' version '{project-version}'
+    id 'org.beryx.jlink' version '{project-version}'
 }
 ----
 
