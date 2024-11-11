@@ -30,7 +30,7 @@ project.version.with {
     releaseBuild = pluginReleaseBuild
 }
 def badassJlinkPluginTag = pluginReleaseBuild ? "v$project.version" : 'master'
-group = 'org.beryx'
+group = 'com.dua3.gradle'
 
 license {
     header file('license-header.txt')
@@ -74,12 +74,12 @@ shadowJar {
 }
 
 gradlePlugin {
-    website = vcsUrl = 'https://github.com/beryx/badass-jlink-plugin'
+    website = vcsUrl = 'https://github.com/xzel23/badass-jlink-plugin'
     plugins {
         jlink {
-            id = 'org.beryx.jlink'
+            id = 'com.dua3.gradle.jlink'
             implementationClass = 'org.beryx.jlink.JlinkPlugin'
-            displayName = 'Badass JLink Plugin'
+            displayName = 'Badass JLink Plugin (patched)'
             description = 'A Gradle plugin that assembles your modules into a custom runtime image'
             tags.set(['jlink', 'jpackage', 'jpms'])
         }
@@ -104,7 +104,7 @@ asciidoctor {
 }
 
 gitPublish {
-    repoUri = 'https://github.com/beryx/badass-jlink-plugin.git'
+    repoUri = 'https://github.com/xzel23/badass-jlink-plugin'
     branch = 'gh-pages'
 
     def pgType = project.hasProperty('ghPageType') ? ghPageType : 'latest'
@@ -145,7 +145,7 @@ gitPublish {
 
 tasks.register('update-release-list') {
     doLast {
-        def docBaseUrl = 'http://badass-jlink-plugin.beryx.org'
+        def docBaseUrl = 'https://github.com/xzel23/badass-jlink-plugin'
         def markdown = getReleasesMarkdown(getReleases(), docBaseUrl)
         new File(mkdir('build/release-list'), 'releases.md').write(markdown)
     }
@@ -153,7 +153,7 @@ tasks.register('update-release-list') {
 
 static def getReleases() {
     def releases = GitHub.connectAnonymously()
-            .getRepository('beryx/badass-jlink-plugin')
+            .getRepository('/xzel23/badass-jlink-plugin')
             .getDirectoryContent('releases', 'gh-pages')*.name
     releases.removeAll { !it || it == 'latest' }
 
