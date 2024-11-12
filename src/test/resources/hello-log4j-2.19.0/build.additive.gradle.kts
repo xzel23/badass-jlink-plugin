@@ -1,5 +1,5 @@
 plugins {
-    id("org.beryx.jlink")
+    id("com.dua3.gradle.jlink")
 }
 
 repositories {
