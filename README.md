@@ -2,6 +2,13 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/beryx/badass-jlink-plugin/blob/master/LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/beryx/badass-jlink-plugin/.github/workflows/build-jlink-plugin.yml?branch=master)](https://github.com/beryx/badass-jlink-plugin/actions?query=workflow%3A%22Java+11+Gradle+CI%22)
 
+# Project Status: DEPRECATED #
+
+This repository was created as a fork to introduce enhancements not available in the upstream project at the time.
+I have since joined the upstream project as a maintainer, and this fork is no longer updated or supported.  
+
+For the latest code, issues, and contributions, please refer to the [upstream repository](https://github.com/beryx/badass-jlink-plugin).
+
 ## Badass JLink Plugin ##
 
 ##### NOTE: This is a fork of the original [Badass-Jlink-Plugin](https://github.com/beryx/badass-jlink-plugin) that is patched to support newer Java releases and other fixes not yet available with the original plugin.
